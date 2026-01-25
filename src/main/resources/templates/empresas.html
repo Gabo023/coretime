@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:replace="~{plantilla :: layout(~{:: #contenido-pagina})}">
+
+<body>
+  <div id="contenido-pagina">
+    
+    <div class="row">
+      <div class="col-12">
+        <div class="card my-4">
+          
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-dark shadow-dark border-radius-lg pt-4 pb-3">
+              <h6 class="text-white text-capitalize ps-3">Gestión de Empresas</h6>
+            </div>
+          </div>
+          
+          <div class="card-body px-0 pb-2">
+            <div class="table-responsive p-0">
+              <table class="table align-items-center mb-0">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-3">Nombre / Razón Social</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">RUC</th>
+                    <th class="text-secondary opacity-7"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="empresa : ${empresas}">
+                    <td>
+                      <div class="d-flex px-3 py-1">
+                        <div class="d-flex flex-column justify-content-center">
+                          <h6 class="mb-0 text-sm" th:text="${empresa.nombre}">Nombre Empresa</h6>
+                          <p class="text-xs text-secondary mb-0" th:text="'ID: ' + ${empresa.id}">ID: 1</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0" th:text="${empresa.ruc}">17900000001</p>
+                    </td>
+                    <td class="align-middle">
+                      <a href="javascript:;" class="text-secondary font-weight-bold text-xs">Editar</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div> 
+          
+        </div> 
+      </div> 
+    </div> 
+
+  </div>
+</body>
+</html>
